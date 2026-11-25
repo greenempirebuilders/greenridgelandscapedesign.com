@@ -24,7 +24,7 @@ NAME = B["name"]
 ADDRESS = f"{B['address']}, {B['city']}, {B['state']} {B['zip']}"
 PRIMARY = B["primaryColor"]
 SECONDARY = B["secondaryColor"]
-WEBHOOK = "https://formsubmit.co/" + B["notifyEmail"]  # FormSubmit endpoint (same setup as GEB/GEL)
+WEBHOOK = "https://formsubmit.co/" + B["email"]  # FormSubmit endpoint (same setup as GEB/GEL)
 FONT    = B.get("font", "Inter")
 
 # ── Lucide icon helpers ───────────────────────────────────
