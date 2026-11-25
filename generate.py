@@ -24,7 +24,7 @@ NAME = B["name"]
 ADDRESS = f"{B['address']}, {B['city']}, {B['state']} {B['zip']}"
 PRIMARY = B["primaryColor"]
 SECONDARY = B["secondaryColor"]
-WEBHOOK = B["zapierWebhook"]
+WEBHOOK = "https://formsubmit.co/" + B["notifyEmail"]  # FormSubmit endpoint (same setup as GEB/GEL)
 FONT    = B.get("font", "Inter")
 
 # ── Lucide icon helpers ───────────────────────────────────
@@ -251,7 +251,8 @@ def booking_form(compact=False):
     </div>
     <div class="form-group"><label>Details</label><textarea name="message" rows="3" placeholder="Tell us about your project..."></textarea></div>
     <input type="text" name="_gotcha" style="display:none" />
-    <input type="hidden" name="_next" value="/thank-you.html" />
+    <input type="hidden" name="_next" value="https://greenridgelandscapedesign.com/thank-you.html" />
+    <input type="hidden" name="_captcha" value="false" />
     <button type="submit" class="btn btn-primary btn-block">Send Request →</button>
   </form>
 </div>"""
@@ -274,7 +275,8 @@ def booking_form(compact=False):
     <div class="form-group"><label>Project Details</label><textarea name="message" rows="4" placeholder="Describe your project, property size, timeline..."></textarea></div>
     <input type="text" name="_gotcha" style="display:none" />
     <input type="hidden" name="_subject" value="New Estimate Request - {NAME}" />
-    <input type="hidden" name="_next" value="/thank-you.html" />
+    <input type="hidden" name="_next" value="https://greenridgelandscapedesign.com/thank-you.html" />
+    <input type="hidden" name="_captcha" value="false" />
     <button type="submit" class="btn btn-primary btn-block">Send My Request →</button>
     <p class="form-disclaimer">We respect your privacy. No spam, ever.</p>
   </form>
