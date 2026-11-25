@@ -24,7 +24,7 @@ NAME = B["name"]
 ADDRESS = f"{B['address']}, {B['city']}, {B['state']} {B['zip']}"
 PRIMARY = B["primaryColor"]
 SECONDARY = B["secondaryColor"]
-WEBHOOK = "https://formsubmit.co/ajax/" + B["email"]  # AJAX endpoint: returns JSON+CORS for the async fetch handler  # FormSubmit endpoint (same setup as GEB/GEL)
+WEBHOOK = "https://formsubmit.co/" + B["email"]  # FormSubmit endpoint, native form post (same as GEB/GEL)  # FormSubmit endpoint (same setup as GEB/GEL)
 FONT    = B.get("font", "Inter")
 
 # ── Lucide icon helpers ───────────────────────────────────

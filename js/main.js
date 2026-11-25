@@ -61,38 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ── Booking Form (async → Zapier webhook) ─────────────
-  document.querySelectorAll('form.booking-form').forEach(form => {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      const orig = btn.textContent;
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
-
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form)
-        });
-        if (res.ok) {
-          window.location.href = '/thank-you.html';
-        } else {
-          throw new Error();
-        }
-      } catch {
-        const phone = form.dataset.phone || '';
-        btn.textContent = phone ? `Error — call us at ${phone}` : 'Error sending — please call us';
-        btn.style.background = '#dc2626';
-        setTimeout(() => {
-          btn.textContent = orig;
-          btn.style.background = '';
-          btn.disabled = false;
-        }, 4000);
-      }
-    });
-  });
-
   // ── Chat button ────────────────────────────────────────
   const chatBtn = document.querySelector('.chat-btn');
   if (chatBtn) {
